@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField] private float moveSpeed = 5.0f;
+    [SerializeField] private float reverseMoveSpeed = 2.0f;
     [SerializeField] private float rotateSpeed = 360.0f;
     private Vector3 position;
     [SerializeField] private Vector3 _rotation;
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
     private void MovePlayer() {
         // Forward and Backward movement
         if (Input.GetKey(KeyCode.W)) transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-        if (Input.GetKey(KeyCode.S)) transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+        if (Input.GetKey(KeyCode.S)) transform.Translate(Vector3.back * reverseMoveSpeed * Time.deltaTime);
 
         // Left and Right rotation
         if (Input.GetKey(KeyCode.D)) _rotation = Vector3.up;
